@@ -53,7 +53,7 @@ public class Bill {
 	}
 	
 	public int gst() {
-		return (this.subTotal()/100)*18;
+		return (this.subTotal()/100)*12;
 	}
 	
 	public int grandTotal() {

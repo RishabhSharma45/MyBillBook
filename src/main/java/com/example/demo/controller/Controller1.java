@@ -61,6 +61,8 @@ public class Controller1 {
 		System.out.println(product);
 		ProductDetails p = new StoredProducts().getProductDetails(product.getProductname());
 		
+		product.setProductname(p.getProductname());
+		product.setPack(p.getPack());
 		product.setBatch(p.getBatch());
 		product.setExpiry(p.getExpiry());
 		product.setHsn(p.getHsn());
@@ -176,10 +178,10 @@ public class Controller1 {
 	     Document document = new Document(pdfDoc);
 
 	     // Header Section with Business Name and Address
-	     document.add(new Paragraph("MAHALAXMI MEDICOSE").setBold().setFontSize(14).setTextAlignment(TextAlignment.CENTER));
-	     document.add(new Paragraph("LANDMARK GARDEN KE SAMNE, SANCHI ROAD, VIDISHA").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
-	     document.add(new Paragraph("PHONE: 07592-245110, MOB NO.: 7999077213").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
-	     document.add(new Paragraph("E-MAIL: MAHALAXMIMEDICOSEVDS@gmail.com").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
+	     document.add(new Paragraph("RAM MEDICAL AGENCY").setBold().setFontSize(14).setTextAlignment(TextAlignment.CENTER));
+	     document.add(new Paragraph("SHOP NO.14 , DRUG MARKET NEAR NADRA BUS STAND BHOPAL").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
+	     document.add(new Paragraph("PHONE: 0755-245110, MOB NO.: 7999077213").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
+	     document.add(new Paragraph("E-MAIL: RAMMEDICALAGENCY@gmail.com").setFontSize(10).setTextAlignment(TextAlignment.CENTER));
 
 	     // License Details
 	     Table licenseTable = new Table(new float[]{4, 4, 2, 2}).setWidth(UnitValue.createPercentValue(100));
@@ -196,10 +198,11 @@ public class Controller1 {
 	     
 	     // Product Table Header
 	     
-	     Table table = new Table(new float[] { 3, 1, 1, 1, 1, 1, 1, 1, 1 }).setWidth(UnitValue.createPercentValue(100));
+	     Table table = new Table(new float[] { 3,1, 1, 1, 1, 1, 1, 1, 1, 1 }).setWidth(UnitValue.createPercentValue(100));
 	     
 	     // Table Headers
 	     table.addHeaderCell(new Cell().add(new Paragraph("Product Name").setBold().setFontSize(10)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
+	     table.addHeaderCell(new Cell().add(new Paragraph("Pack").setBold().setFontSize(10)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
 	     table.addHeaderCell(new Cell().add(new Paragraph("Batch").setBold().setFontSize(10)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
 	     table.addHeaderCell(new Cell().add(new Paragraph("Expiry").setBold().setFontSize(10)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
 	     table.addHeaderCell(new Cell().add(new Paragraph("HSN").setBold().setFontSize(10)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
@@ -212,12 +215,13 @@ public class Controller1 {
 	     // Adding Product Rows
 	     for (Product product : bill.getProducts()) {
 	         table.addCell(new Cell().add(new Paragraph(product.getProductname()).setFontSize(9)));
+	         table.addCell(new Cell().add(new Paragraph(product.getPack()).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(product.getBatch()).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(product.getExpiry()).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(product.getHsn()).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(String.valueOf(product.getMrp())).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(String.valueOf(product.getRate())).setFontSize(9)));
-	         table.addCell(new Cell().add(new Paragraph(String.valueOf(product.getQuantity())).setFontSize(9)));
+	         table.addCell(new Cell().add(new Paragraph(product.getScheme()).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(String.valueOf(product.getCd())).setFontSize(9)));
 	         table.addCell(new Cell().add(new Paragraph(String.valueOf(product.getAmount())).setFontSize(9)));
 	     }

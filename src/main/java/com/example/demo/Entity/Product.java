@@ -5,7 +5,9 @@ public class Product {
 	private String productname;
 	private int rate;
 	private int quantity;
+	private String scheme;
 	
+	private String pack;
 	private String batch;
 	private String expiry;
 	private String hsn;
@@ -42,7 +44,15 @@ public class Product {
 		this.quantity = quantity;
 	}
 	
-	  public int getAmount() {
+	
+	
+	  public String getScheme() {
+		return scheme;
+	}
+	public void setScheme(String scheme) {
+		this.scheme = scheme;
+	}
+	public int getAmount() {
 	        return this.rate * this.quantity;
 	    }
 	  
@@ -81,6 +91,13 @@ public class Product {
 	}
 	public void setSd(String sd) {
 		this.sd = sd;
+	}
+	
+	public String getPack() {
+		return pack;
+	}
+	public void setPack(String pack) {
+		this.pack = pack;
 	}
 	@Override
 	public String toString() {

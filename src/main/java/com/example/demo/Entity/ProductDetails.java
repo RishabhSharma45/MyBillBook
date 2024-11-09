@@ -3,6 +3,7 @@ package com.example.demo.Entity;
 public class ProductDetails {
 	
 	private String productname;
+	private String pack;
 	private String batch;
 	private String expiry;
 	private String hsn;
@@ -13,9 +14,10 @@ public class ProductDetails {
 	public ProductDetails() {
 	}
 
-	public ProductDetails(String productname, String batch, String expiry, String hsn, String mrp, String cd,
+	public ProductDetails(String productname, String pack, String batch, String expiry, String hsn, String mrp, String cd,
 			String sd) {
 		this.productname = productname;
+		this.pack=pack;
 		this.batch = batch;
 		this.expiry = expiry;
 		this.hsn = hsn;
@@ -30,6 +32,14 @@ public class ProductDetails {
 
 	public void setProductname(String productname) {
 		this.productname = productname;
+	}
+
+	public String getPack() {
+		return pack;
+	}
+
+	public void setPack(String pack) {
+		this.pack = pack;
 	}
 
 	public String getBatch() {
