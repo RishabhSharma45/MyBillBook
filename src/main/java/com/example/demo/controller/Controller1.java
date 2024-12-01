@@ -169,8 +169,9 @@ public class Controller1 {
 	 
 	 @GetMapping("/generatePdf")
 	 public void generatePdf1(HttpServletResponse response) throws IOException, java.io.IOException {
-	     response.setContentType("application/pdf");
-	     response.setHeader("Content-Disposition", "attachment; filename=final_bill.pdf");
+		 String name = bill.getCustomer() + bill.getDate()+".pdf";
+				 response.setContentType("application/pdf");
+	     response.setHeader("Content-Disposition", "attachment; filename=\""+name+"\"");
 
 	     PdfWriter writer = new PdfWriter(response.getOutputStream());
 	     PdfDocument pdfDoc = new PdfDocument(writer);
@@ -257,6 +258,7 @@ public class Controller1 {
 	     document.add(new Paragraph("AUTHORIZED SIGNATURE").setBold().setFontSize(10).setTextAlignment(TextAlignment.RIGHT));
 
 	     document.close();
+	    
 	 }
 
 	 

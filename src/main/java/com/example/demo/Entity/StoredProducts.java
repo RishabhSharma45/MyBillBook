@@ -48,7 +48,7 @@ public class StoredProducts {
 	  map.put("zemvital2500inj", zemvital2500inj);
 	  map.put("rebehilcaps", rebehilcaps );
 	  map.put("rebehilldsr", rebehilldsr);
-	  map.put("pentohilldsr ", pentohilldsr);
+	  map.put("pentohilldsr", pentohilldsr);
 	  map.put("amoxichem", amoxichem);
 	  map.put("cefihillotab", cefihillotab);
 	  map.put("utrohillsyrup", utrohillsyrup);
